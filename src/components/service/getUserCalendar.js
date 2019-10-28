@@ -1,12 +1,12 @@
+
+import ls from 'local-storage'
 class getUserCalendar {
   getSavedData(){
-    if(localStorage.getItem('userDays')!== undefined){
-      const savedDays = JSON.parse.localStorage.getItem('userDays');
-      return savedDays
-    }
+    const savedDays = ls.get('userDays');
+    return savedDays
   }
   saveUserData(info){
-    localStorage.setItem('userDays', JSON.stringify(info));
+    ls.set('userDays', info);
   }
 }
 export default getUserCalendar; 

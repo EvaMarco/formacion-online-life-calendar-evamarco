@@ -2,7 +2,9 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Calendar from '../Calendar/Calendar';
 import DaysEditor from '../DaysEditor/DaysEditor';
-// import getUserCalendar from '../service/getUserCalendar';
+import ls from 'local-storage'
+import getUserCalendar from '../service/getUserCalendar';
+import Day from '../Day/Day';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,8 +20,7 @@ class App extends React.Component {
     this.getState = this.getState.bind(this);
     this.getHappyMsg = this.getHappyMsg.bind(this);
     this.savedUserData = this.savedUserData.bind(this);
-    // this.UserCalendar = new getUserCalendar(); 
-    // this.UserCalendar.getSavedData = this.UserCalendar.getSavedData.bind(this)
+    this.UserCalendar = new getUserCalendar(); 
     this.init = this.init.bind(this)
   }
   componentDidMount(){
@@ -27,19 +28,12 @@ class App extends React.Component {
     this.init();
   }
   init(){
-    try{ 
-      const savedDays = JSON.parse.localStorage.getItem('userDays');
-      this.setState({userDays: savedDays});
-      console.log('soy los datos guardados', savedDays)
+    // const savedDays = ls.get('userDays');
+    // this.setState({userDays: savedDays});
+    const savedData = this.UserCalendar.getSavedData();
+    if(savedData){
+      this.setState({userDays: savedData})
     }
-    catch{
-      console.log('No saved Data');
-    }
-
-    // const savedData = this.UserCalendar.getSavedData();
-    // if(savedData){
-    //   this.setState({userDays: savedData})
-    // }
   }
   getDate(event){
     const inputDate = event.currentTarget.value;
@@ -74,13 +68,13 @@ class App extends React.Component {
     };
     const obj = [...this.state.userDays];
     obj.push(userDay);
-    localStorage.setItem('userDays', JSON.stringify(obj));
+    ls.set('userDays', obj);
     this.setState({date: '', state: '', happyMsg: '', userDays : obj});
     // this.UserCalendar.saveUserData(this.state.userDays)
   }
   render() {
     const {getDate, getState, getHappyMsg, savedUserData} = this;
-    const {isAHappyDay} = this.state;
+    const {isAHappyDay, userDays} = this.state;
 
     return (
       <div className="App">
@@ -93,14 +87,7 @@ class App extends React.Component {
                 () => {
                   return (
                     <Calendar 
-                      // episodes = {this.state.episodes}
-                      // api = {this.state.api} 
-                      // query = {this.state.query}
-                      // getUserInput = {this.getUserInput} 
-                      // getSelectValue = {this.getSelectValue}
-                      // getEpisodes = {this.getEpisodes}
-                      // planet = {this.state.planet}
-                      // planets = {this.state.planets}
+                      userDays = {userDays}
                     />
                   )
                 }
@@ -109,11 +96,10 @@ class App extends React.Component {
             <Route 
               path = '/DaysEditor'
               render = {
-                (routerProps) => {
+                () => {
                   return (
                     <DaysEditor 
                       isAHappyDay = {isAHappyDay}
-                      routerProps = {routerProps}
                       getDate = {getDate}
                       getState = {getState}
                       getHappyMsg = {getHappyMsg}
@@ -123,6 +109,19 @@ class App extends React.Component {
                 }
               }
             />
+            <Route
+            path = '/day/:date'
+              render = {
+                (routerProps) => {
+                  return (
+                    <Day 
+                      routerProps = {routerProps}
+                      userDays = {userDays}
+                    />
+                  )
+                }
+              }
+              />
           </Switch>
         </header>
       </div>
