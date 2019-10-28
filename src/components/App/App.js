@@ -10,9 +10,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAHappyDay: false,
+      isAHappyDay: true,
       date: '',
-      state:'',
+      state:':)',
       happyMsg: '',
       userDays:[]
     }
@@ -24,12 +24,9 @@ class App extends React.Component {
     this.init = this.init.bind(this)
   }
   componentDidMount(){
-    
     this.init();
   }
   init(){
-    // const savedDays = ls.get('userDays');
-    // this.setState({userDays: savedDays});
     const savedData = this.UserCalendar.getSavedData();
     if(savedData){
       this.setState({userDays: savedData})
@@ -37,13 +34,26 @@ class App extends React.Component {
   }
   getDate(event){
     const inputDate = event.currentTarget.value;
-    this.setState({date:inputDate})
-    return inputDate
+    for (let item of this.state.userDays){
+      console.log(item.date)
+      if(item.date === inputDate){
+        console.log('fecha repetida')
+        return ''
+      }
+      else{
+        this.setState({date:inputDate})
+        return inputDate
+      }
+    }
   }
   getState(event){
     const stateValue = event.currentTarget.value;
     this.setHappyDay(stateValue);
     this.setState({state:stateValue});
+  }
+  getHappyMsg(event){
+    const userHappyMsg = event.currentTarget.value;
+    this.setState({happyMsg: userHappyMsg});
   }
   setHappyDay(state){
     if(state === ':)'){
@@ -52,30 +62,24 @@ class App extends React.Component {
     else{
       this.setState({isAHappyDay: false, happyMsg: ''});
     }
-  }
-  getHappyMsg(event){
-    const userHappyMsg = event.currentTarget.value;
-    this.setState({happyMsg: userHappyMsg});
-  }
+  }  
   savedUserData(){
     const date = this.state.date;
-    const state = this.state.state;
-    const msg = this.state.happyMsg;
-    const userDay = {
-      date: date,
-      state: state,
-      msg: msg
-    };
-    const obj = [...this.state.userDays];
-    obj.push(userDay);
-    ls.set('userDays', obj);
-    this.setState({date: '', state: '', happyMsg: '', userDays : obj});
-    // this.UserCalendar.saveUserData(this.state.userDays)
+      const state = this.state.state;
+      const msg = this.state.happyMsg;
+      const userDay = {
+        date: date,
+        state: state,
+        msg: msg
+      };
+      const obj = [...this.state.userDays];
+      obj.push(userDay);
+      ls.set('userDays', obj);
+      this.setState({date: '', state: ':)', happyMsg: '', isHappyDay: true, duplicateDate: false, userDays : obj});
   }
   render() {
     const {getDate, getState, getHappyMsg, savedUserData} = this;
-    const {isAHappyDay, userDays} = this.state;
-
+    const {isAHappyDay, userDays, date, duplicateDate} = this.state;
     return (
       <div className="App">
         <header className="main__header">
@@ -99,6 +103,8 @@ class App extends React.Component {
                 () => {
                   return (
                     <DaysEditor 
+                      date = {date}
+                      duplicateDate = {duplicateDate}
                       isAHappyDay = {isAHappyDay}
                       getDate = {getDate}
                       getState = {getState}

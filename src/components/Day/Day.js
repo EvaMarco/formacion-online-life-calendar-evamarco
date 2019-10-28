@@ -5,8 +5,6 @@ function Day(props) {
   const {routerProps, userDays} = props; 
   const date = routerProps.match.params.date;
   const thisDay = userDays.find(item => item.date === date);
-  console.log(thisDay)
-  console.log(date)
   if(thisDay){
     return (
       <div className="Day">

@@ -51,6 +51,7 @@ This are my step by step instructios on how I made this project.
 6. I create an init function, its mission is to check if there is something saved in local storage and if it is, save this data in the state. 
 7. Then I send this state to the calendar, and with a map I paint all info. 
 8. My next step was to create a detail for each day, so user can see all info of that day. 
+9. When all basic functionality is working, I wrote the checkDate function. 
 
 ## 💻️ Available Scripts
 
