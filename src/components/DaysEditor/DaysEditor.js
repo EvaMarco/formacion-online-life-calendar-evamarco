@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './DaysEditor.scss';
 
 function DaysEditor(props) {
-  const {getDate, getState, isAHappyDay}= props;
+  const {getDate, getState, isAHappyDay, getHappyMsg, savedUserData}= props;
   return (
     <div className="DaysEditor">
      
@@ -20,10 +20,10 @@ function DaysEditor(props) {
           ':('
         </label>
         <label htmlFor="happy_msg" className={`happy-msg ${isAHappyDay=== false ? 'hidden' : ''}`}>Why today was a GOOD DAY?
-          <textarea className="happy-msg__text" name="happy__msg" id="happy__msg" cols="30" rows="10"></textarea>
+          <textarea className="happy-msg__text" name="happy__msg" id="happy__msg" cols="30" rows="10" onChange = {getHappyMsg}></textarea>
         </label>
       </form>
-      <button>Create</button>
+      <button onClick = {savedUserData}>Create</button>
       <Link to = "/"> Cancel</Link>
     </div>
   );
