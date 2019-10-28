@@ -6,9 +6,34 @@ import DaysEditor from '../DaysEditor/DaysEditor';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isAHappyDay: true
+    }
+    this.getDate = this.getDate.bind(this);
+    this.getState = this.getState.bind(this);
+  }
+  getDate(event){
+    const inputValue = event.currentTarget.value;
+    console.log(inputValue)
+  }
+  getState(event){
+    const stateValue = event.currentTarget.value;
+    console.log(stateValue)
+    this.setHappyDay(stateValue);
+  }
+  setHappyDay(state){
+    if(state === ':)'){
+      this.setState({isAHappyDay: true});
+    }
+    else{
+      this.setState({isAHappyDay: false});
+    }
   }
 
   render() {
+    const {getDate, getState, setHappyDay} = this;
+    const {isAHappyDay} = this.state;
+
     return (
       <div className="App">
         <header className="main__header">
@@ -39,7 +64,10 @@ class App extends React.Component {
                 (routerProps) => {
                   return (
                     <DaysEditor 
+                      isAHappyDay = {isAHappyDay}
                       routerProps = {routerProps}
+                      getDate = {getDate}
+                      getState = {getState}
                     />
                   )
                 }
