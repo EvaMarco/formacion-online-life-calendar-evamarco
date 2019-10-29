@@ -1,0 +1,31 @@
+.Calendar{
+
+}
+
+.happy-days__list{
+  padding: 20px;
+  padding-top: 240px;
+  display: grid;
+  grid-gap: 15px; 
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  background-color: lightcyan;
+  min-height: calc(100vh - 20px)
+ 
+}
+
+.state__icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: black;
+  font-size: 65px;
+}
+.happy{
+  background-color: yellow;
+}
+.sad{
+  background-color: orangered;
+}

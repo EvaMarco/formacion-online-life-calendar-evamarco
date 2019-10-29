@@ -1,11 +1,11 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Link} from 'react-router-dom';
+import ls from 'local-storage';
+import getUserCalendar from '../service/getUserCalendar';
 import Calendar from '../Calendar/Calendar';
 import DaysEditor from '../DaysEditor/DaysEditor';
-import ls from 'local-storage'
-import getUserCalendar from '../service/getUserCalendar';
 import Day from '../Day/Day';
-
+import './App.scss';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,8 @@ class App extends React.Component {
       date: '',
       state:':)',
       happyMsg: '',
-      userDays:[]
+      userDays:[],
+      duplicateDate: false
     }
     this.getDate = this.getDate.bind(this);
     this.getState = this.getState.bind(this);
@@ -33,18 +34,17 @@ class App extends React.Component {
     }
   }
   getDate(event){
+    this.setState({duplicateDate: false})
     const inputDate = event.currentTarget.value;
-    for (let item of this.state.userDays){
-      console.log(item.date)
-      if(item.date === inputDate){
-        console.log('fecha repetida')
+    const sameDate = this.state.userDays.find(item => item.date === inputDate)
+      if(sameDate){
+        this.setState({duplicateDate: true})
         return ''
       }
       else{
         this.setState({date:inputDate})
         return inputDate
       }
-    }
   }
   getState(event){
     const stateValue = event.currentTarget.value;
@@ -84,6 +84,8 @@ class App extends React.Component {
       <div className="App">
         <header className="main__header">
           <h1 className="header__title">Happy days only calendar</h1>
+          <Link className="btn__link" to = "DaysEditor"> + </Link>
+        </header>
           <Switch>
             <Route 
               exact path = '/' 
@@ -129,7 +131,7 @@ class App extends React.Component {
               }
               />
           </Switch>
-        </header>
+
       </div>
     );
   }

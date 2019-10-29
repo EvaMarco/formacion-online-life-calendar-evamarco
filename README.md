@@ -1,4 +1,4 @@
-# Exercise Formación Online de Adalab by Eva Marco
+# Exercise "Formación Online de Adalab" by Eva Marco
 
 ![EvaMarco](src/assets/eva&#32;logo.png)
 
@@ -7,14 +7,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ##  👩‍🔧️ How to start
 
 Clone online repository from [this link](https://github.com/Adalab/formacion-online-life-calendar-evamarco).
-To install all dependences run `npm install`.
+
+Then install all dependences by running `npm install`.
 
 
 ## 👣️ 👣  Step  by Step️
 
-This are my step by step instructios on how I made this project. 
+These are my step by step instructions for this project. 
 
-1. I start by reading my specifications. 
+1. I start by reading my specifications carefully. 
   You can read them [here](https://books.adalab.es/materiales-front-end-g/formacion-online/3_prueba_tecnica).
   There were some important notes from this exercise:
       - You only have two options (Good Day  or Bad Day).
@@ -50,8 +51,9 @@ This are my step by step instructios on how I made this project.
 
 6. I create an init function, its mission is to check if there is something saved in local storage and if it is, save this data in the state. 
 7. Then I send this state to the calendar, and with a map I paint all info. 
-8. My next step was to create a detail for each day, so user can see all info of that day. 
-9. When all basic functionality is working, I wrote the checkDate function. 
+8. My next step was to create a detail for each day, so user can see all info of that day. This is a new component.
+9. When all basic functionality is working, I wrote the checkDate function. With this function you get a message if the date you choose has a register already.
+10. Next step is to give a nicer look to everything.
 
 ## 💻️ Available Scripts
 

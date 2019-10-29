@@ -1,0 +1,39 @@
+.App{
+  min-height: 100vh;
+  background-color: cornsilk;
+}
+
+.main__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 350px;
+  background-image: url(../../assets/fondoHeader.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 100vw;
+}
+.header__title{
+  color: orangered;
+  font-size: 60px;
+  text-shadow: 2px 2px 5px orange;
+  padding-top: 40px,
+}
+.btn__link{
+  display: block; 
+  width: 100vw;
+  background-color: blueviolet;
+  text-align: center;
+  color: white;
+
+  padding: 10px 0;
+}
+@media (min-width:400px){
+  .main__header{
+
+    height: 200px;
+  }
+}

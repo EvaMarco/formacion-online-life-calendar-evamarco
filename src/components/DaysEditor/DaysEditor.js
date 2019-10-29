@@ -6,8 +6,7 @@ function DaysEditor(props) {
   const {getDate, getState, isAHappyDay, getHappyMsg, savedUserData, date, duplicateDate} = props;
   return (
     <div className="DaysEditor">
-     
-      <form action="">
+      <form className="form"action="">
         <label htmlFor="date">Date * </label>
         <input type="date" name="date" id="date" onChange = {getDate} required/> 
         <p className={duplicateDate === false ? 'hidden' : ''}>You already have a register for this day</p>
@@ -23,7 +22,10 @@ function DaysEditor(props) {
         <label htmlFor="happy_msg" className={`happy-msg ${isAHappyDay=== false ? 'hidden' : ''}`}>Why today was a GOOD DAY?
           <textarea className="happy-msg__text" name="happy__msg" id="happy__msg" cols="30" rows="10" onChange = {getHappyMsg}></textarea>
         </label>
+        <Link to = "/">
+
       <input type='submit' onClick = {savedUserData} value = "Create" disabled={ date !== '' ? '': 'disabled'}/>
+        </Link>
       </form>
       <Link to = "/"> Cancel</Link>
     </div>
