@@ -84,8 +84,8 @@ class App extends React.Component {
       <div className="App">
         <header className="main__header">
           <h1 className="header__title">Happy days only calendar</h1>
-          <Link className="btn__link" to = "DaysEditor"> + </Link>
         </header>
+          <Link className="btn__link" to = "DaysEditor"> + </Link>
           <Switch>
             <Route 
               exact path = '/' 

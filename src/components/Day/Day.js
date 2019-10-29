@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Day.scss';
 
 function Day(props) {
@@ -33,6 +34,11 @@ function Day(props) {
       </React.Fragment>
     );
   }
+}
+
+Day.propTypes = {
+  userDays: PropTypes.arrayOf(PropTypes.object).isRequired,
+  routerProps: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default Day;

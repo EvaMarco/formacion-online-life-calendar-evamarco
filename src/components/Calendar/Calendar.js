@@ -1,9 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Calendar.scss'; 
 
 function Calendar(props) {
   const {userDays} = props; 
+  const happyDays = userDays.filter(item => item.state === ':)').length;
+  console.log(happyDays);
+  const allDays = userDays.length;
+  console.log(allDays);
   if(userDays[0] !== undefined){
     return (
       <div className="Calendar">
@@ -16,7 +21,10 @@ function Calendar(props) {
             </li>
           )})}
         </ul>
-        <div className="average__days">Aquí ira el resumen de días buenos y malos. </div>
+        <div className="average__days">
+          <p className="happyDays" style={{width: `${happyDays/allDays*100}%`}} >{happyDays}</p>
+          <p className="badDays" style={{width: `${(allDays-happyDays)/allDays*100}%`}} >{allDays-happyDays}</p>
+        </div>
       </div>
     );
   }
@@ -28,6 +36,9 @@ function Calendar(props) {
       </div>
     );
   }
+}
+Calendar.propTypes = {
+  userDays: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Calendar;

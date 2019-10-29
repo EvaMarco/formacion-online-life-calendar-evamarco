@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './DaysEditor.scss';
 
 function DaysEditor(props) {
@@ -9,7 +10,7 @@ function DaysEditor(props) {
       <form className="form" action="">
         <label htmlFor="date">Date  </label>
         <input className="date__input" type="date" name="date" id="date" onChange={getDate} required />
-        <p className={duplicateDate === false ? 'hidden' : ''}>You already have a register for this day</p>
+        <p className={`warning ${duplicateDate === false ? 'hidden' : ''}`}>You already have a register for this day</p>
         <div className="state__wrapper">
           <p>How was your day today?</p>
           <div className="states">
@@ -36,5 +37,16 @@ function DaysEditor(props) {
     </div>
   );
 }
+
+DaysEditor.propTypes = {
+  getDate: PropTypes.func.isRequired, 
+  getState: PropTypes.func.isRequired, 
+  isAHappyDay: PropTypes.bool.isRequired, 
+  getHappyMsg: PropTypes.func.isRequired, 
+  savedUserData: PropTypes.func.isRequired, 
+  date: PropTypes.string.isRequired, 
+  duplicateDate: PropTypes.bool.isRequired
+}
+
 
 export default DaysEditor;

@@ -1,14 +1,11 @@
-.Calendar{
-  min-height: calc(100vh - 20px);
-}
 .happy-days__list{
   padding: 5px;
-  padding-top: 160px;
+  padding-top: 20px;
   display: grid;
   grid-gap: 10px; 
   grid-template-columns: repeat(auto-fit, minmax(90px, 90px));
   background-color: lightcyan;
-  min-height: calc(100vh - 45px);
+  min-height: calc(100vh - 223px);
 }
 .state__icon{
   display: flex;
@@ -25,19 +22,39 @@
 }
 .sad{
   background-color: orangered;
+  color: white;
+}
+.average__days{
+  display: flex;
+}
+.happyDays{
+  background-color: yellow;
+  color: black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.badDays{
+  background-color: orangered;
+  color: black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width:403px){
   .happy-days__list{
-    padding-top: 210px;
+    min-height: calc(100vh - 263px);
   }
 }
 @media (min-width:567px){
   .happy-days__list{
-    padding-top: 150px;
+    min-height: calc(100vh - 203px);
   }
 }
 @media (min-width:825px){
   .happy-days__list{
-    padding-top: 200px;
+    min-height: calc(100vh - 254px);
   }
 }

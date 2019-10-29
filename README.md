@@ -54,6 +54,7 @@ These are my step by step instructions for this project.
 8. My next step was to create a detail for each day, so user can see all info of that day. This is a new component.
 9. When all basic functionality is working, I wrote the checkDate function. With this function you get a message if the date you choose has a register already.
 10. Next step is to give a nicer look to everything.
+11. I create a bar where you can see how many happy days vs bad days you have had.
 
 ## 💻️ Available Scripts
 
