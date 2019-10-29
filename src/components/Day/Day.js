@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './Day.scss';
 
 function Day(props) {
   const {routerProps, userDays} = props; 
@@ -8,10 +9,17 @@ function Day(props) {
   if(thisDay){
     return (
       <div className="Day">
-        <Link to = "/"> Back </Link>
-        <p>{thisDay.state}</p>
-        <p>{thisDay.date}</p>
-        <p>{thisDay.msg}</p>
+        <Link  to = "/"><p className="back__arrow"></p> </Link>
+        <p className={`big-state__icon ${thisDay.state === ':)' ? 'happy' : 'sad'}`}>{thisDay.state}</p>
+        <div className="day__info">
+          <div className="date__info">
+            <p className="date">{thisDay.date}</p>
+          </div>
+          <div className="msg__info">
+            <h2 className={`${thisDay.state === ':(' ? 'hidden' : ''}`}>Message</h2>
+            <p className={`msg ${thisDay.state === ':(' ? 'hidden' : ''}`}>{thisDay.msg}</p>
+          </div>
+        </div>
       </div>
     );
   } 

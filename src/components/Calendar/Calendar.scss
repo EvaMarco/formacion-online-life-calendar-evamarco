@@ -1,24 +1,21 @@
 .Calendar{
-
+  min-height: calc(100vh - 20px);
 }
-
 .happy-days__list{
-  padding: 20px;
-  padding-top: 240px;
+  padding: 5px;
+  padding-top: 160px;
   display: grid;
-  grid-gap: 15px; 
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px; 
+  grid-template-columns: repeat(auto-fit, minmax(90px, 90px));
   background-color: lightcyan;
-  min-height: calc(100vh - 20px)
- 
+  min-height: calc(100vh - 45px);
 }
-
 .state__icon{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   color: black;
   font-size: 65px;
@@ -28,4 +25,19 @@
 }
 .sad{
   background-color: orangered;
+}
+@media (min-width:403px){
+  .happy-days__list{
+    padding-top: 210px;
+  }
+}
+@media (min-width:567px){
+  .happy-days__list{
+    padding-top: 150px;
+  }
+}
+@media (min-width:825px){
+  .happy-days__list{
+    padding-top: 200px;
+  }
 }

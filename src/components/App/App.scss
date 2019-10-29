@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 350px;
+  height: 140px;
   background-image: url(../../assets/fondoHeader.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -18,22 +18,46 @@
 }
 .header__title{
   color: orangered;
-  font-size: 60px;
+  font-size: 30px;
   text-shadow: 2px 2px 5px orange;
-  padding-top: 40px,
+  text-align: center;
+  padding: 10px 10px 0 10px;
 }
 .btn__link{
   display: block; 
   width: 100vw;
-  background-color: blueviolet;
+  background-color: rgb(49, 49, 236);
   text-align: center;
   color: white;
 
   padding: 10px 0;
 }
-@media (min-width:400px){
+@media (min-width:403px){
   .main__header{
-
-    height: 200px;
+    height: 180px;
+  }
+  .header__title{
+    padding-top: 15px;
+    font-size: 40px;
+    padding: 15px 15px 0 15px;
+  }
+}
+@media (min-width:567px){
+  .main__header{
+    height: 120px;
+  }
+  .header__title{
+    padding: 15px 15px 0 15px;
+    font-size: 40px;
+    
+  }
+}
+@media (min-width:825px){
+  .main__header{
+    height: 170px;
+  }
+  .header__title{
+    padding-top: 30px;
+    font-size: 60px;
   }
 }
