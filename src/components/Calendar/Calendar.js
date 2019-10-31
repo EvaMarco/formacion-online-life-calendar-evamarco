@@ -6,9 +6,7 @@ import './Calendar.scss';
 function Calendar(props) {
   const {userDays} = props; 
   const happyDays = userDays.filter(item => item.state === ':)').length;
-  console.log(happyDays);
   const allDays = userDays.length;
-  console.log(allDays);
   if(userDays[0] !== undefined){
     return (
       <div className="Calendar">
@@ -31,7 +29,6 @@ function Calendar(props) {
   else{
     return (
       <div className="Calendar">
-        <Link to = "DaysEditor"> + </Link>
         <p>There are no registers yet.</p>
       </div>
     );
