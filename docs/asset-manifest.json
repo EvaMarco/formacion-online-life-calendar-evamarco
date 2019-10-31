@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "./static/css/main.e2d39c78.chunk.css",
+    "main.js": "./static/js/main.df24954b.chunk.js",
+    "main.js.map": "./static/js/main.df24954b.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.c4b91c0e.js",
+    "runtime-main.js.map": "./static/js/runtime-main.c4b91c0e.js.map",
+    "static/js/2.3df9da34.chunk.js": "./static/js/2.3df9da34.chunk.js",
+    "static/js/2.3df9da34.chunk.js.map": "./static/js/2.3df9da34.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.2533a77c0eec7ac030c2748884d28e76.js": "./precache-manifest.2533a77c0eec7ac030c2748884d28e76.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.e2d39c78.chunk.css.map": "./static/css/main.e2d39c78.chunk.css.map",
+    "static/media/App.scss": "./static/media/fondoHeader.ac603318.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c4b91c0e.js",
+    "static/js/2.3df9da34.chunk.js",
+    "static/css/main.e2d39c78.chunk.css",
+    "static/js/main.df24954b.chunk.js"
+  ]
+}
